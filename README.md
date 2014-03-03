@@ -21,7 +21,7 @@ NOTE: Tar will **delete** everything newer than the snapshot taken in the backup
 Usage for backup.sh
 --------------
 
-	Usage: backup.sh [-fiInvh] [-d <dirname>] [-m <dirname>] [-U <UUID>] [-r <dirname>] [-d <dirname>] [-p <filenameprefix>] [-g <filename>] [-m <dirname>]	 
+	Usage: uuid-inc-backup.sh [-fiInvh] [-d <dirname>] [-m <dirname>] [-U <UUID>] [-r <dirname>] [-d <dirname>] [-p <filenameprefix>] [-g <filename>] [-m <dirname>]	 
     	 -f rotate and force full backup
     	 -i include IPFire backup folders defined (default)
     	   in /var/ipfire/backup/include
