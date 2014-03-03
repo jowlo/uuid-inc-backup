@@ -80,10 +80,10 @@ function error_exit
 USAGE="Usage: `basename $0` [-fiIvh] [-d <dirname>] [-m <dirname>] [-U <UUID>] [-r <dirname>] [-p <filenameprefix>] [-g <filename>]\n
 \t\t -f  rotate and force full backup\n
 \t\t -i  include IPFire backup folders defined (default) \n
-\t\t -n  do not include IPFire backup folders \n 
-\t\t -I  ONLY backup IPFire Settings. Includes -i flag, disables all other sources\n
 \t\t\t in /var/ipfire/backup/include\n
 \t\t\t and /var/ipfire/backup/include.user\n
+\t\t -n  do not include IPFire backup folders \n 
+\t\t -I  ONLY backup IPFire Settings. Includes -i flag, disables all other sources\n
 \t\t -U [UUID of backup device]\n
 \t\t -d [dirname] backup directory name\n
 \t\t -p [filenameprefix] prefix for backup filename\n
