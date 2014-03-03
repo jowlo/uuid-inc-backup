@@ -355,9 +355,9 @@ fi
 ### write to log
 /usr/bin/logger ${LOG}
 if [ "${VERBOSE}" == "true" ]
+then
   echo -e "Backed up the following directories:\n\n${SOURCE}\n\n\nWith the exclusion of:\n\n${EXCLUDE}\n\n tar command used:\n\n" 
   echo -e "tar -cpzf ${BACKUPDIR}/${BACKUPFILENAME}-d${DATE}t${TIME}-i$[noOfBackups].tgz -g ${BACKUPDIR}/${TIMESTAMP} ${SOURCE} ${EXCLUDE} &> /dev/null"
-then
   echo -e $LOG
 fi
 
