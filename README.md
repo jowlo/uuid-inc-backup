@@ -17,6 +17,26 @@ See the guide on incremental backups via tar at http://www.gnu.org/software/tar/
 
 NOTE: Tar will **delete** everything newer than the snapshot taken in the backup if you don't pay attention. See above guide.
 
+Encryption
+--------------
+As of now, encrypting the backup is not coded in. But it could be easily added to the tar command line below by piping tar to 
+      | openssl aes-256-cbc -kfile /path/to/key.pem > ${BACKUPFILENAME}.tgz.enc
+
+where key.pem is a keyfile created by
+      openssl genpkey -algorithm RSA -out /path/to/key.pem -aes-256-cbc 
+
+*Decryption* could then be done by issuing
+      cat backupfilename.tgz.enc | openssl aes-256-cbc -d -kfile ./key.pem | tar --list
+after opening the keyfile.
+
+
+Splitting
+--------------
+As with encryption, splitting the backups into files with a maximus size could be achieved by piping the output of the tar command (or the output of above openssl encryption command) to something like
+      | split -d -b 4000m - ${BACKUPFILENAME}.tgz.
+
+To restore files afterwards, prepend any restoring with the following and pipe the output to your restore command
+      cat backup.tgz.* |
 
 Usage for backup.sh
 --------------
