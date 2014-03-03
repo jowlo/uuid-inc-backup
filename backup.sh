@@ -77,7 +77,8 @@ function error_exit
 }
 
 
-USAGE="Usage: `basename $0` [-fiIvh] [-d <dirname>] [-m <dirname>] [-U <UUID>] [-r <dirname>] [-p <filenameprefix>] [-g <filename>]\n
+USAGE="Usage: `basename $0` [-fiInvh] [-d <dirname>] [-m <dirname>] [-U <UUID>]\n
+\t\t[-r <dirname>] [-d <dirname>] [-p <filenameprefix>] [-g <filename>] [-m <dirname>]\n
 \t\t -f  rotate and force full backup\n
 \t\t -i  include IPFire backup folders defined (default) \n
 \t\t\t in /var/ipfire/backup/include\n

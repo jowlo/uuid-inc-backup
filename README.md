@@ -13,8 +13,7 @@ All Variables can be either set within the script itself as defaults or via comm
 Usage
 --------------
 
-	Usage: backup.sh [-fiIvh] [-d <dirname>] [-m <dirname>] [-U <UUID>] [-r <dirname>] [-p <filenameprefix>] [-g <filename>]
-	 -f rotate and force full backup
+	Usage: backup.sh [-fiInvh] [-d <dirname>] [-m <dirname>] [-U <UUID>] [-r <dirname>] [-d <dirname>] [-p <filenameprefix>] [-g <filename>] [-m <dirname>]	 -f rotate and force full backup
 	 -i include IPFire backup folders defined (default)
 	   in /var/ipfire/backup/include
 	   and /var/ipfire/backup/include.user
