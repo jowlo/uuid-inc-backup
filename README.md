@@ -5,12 +5,20 @@ Short
 --------------
 The backup.sh shell script will perform incremental backups of hardcoded source directories via tar to a device with a specific UUID. If the device is not present, no backup will be performed. If the device is not mounted but present, it will be mounted, backed up to and unmounted afterwards.
 
-As a default, only 30 incremental backups are made. If this threshold is reached, all backups will be moved to a rotate directory and a new full backup is created. The threshold can be changed (to something around 99999999 to disable auto-rotation(
+By default, only 30 incremental backups are made. If this threshold is reached, all backups will be moved to a rotate directory and a new full backup is created. The threshold can be changed (to something around 99999999 to disable auto-rotation(
 
 All Variables can be either set within the script itself as defaults or via command line options.
 
+This automates what is described in depth here: http://www.gnu.org/software/tar/manual/html_chapter/Backups.html#SEC95
 
-Usage
+Restoring
+--------------
+See the guide on incremental backups via tar at http://www.gnu.org/software/tar/manual/html_chapter/Backups.html#SEC95 for ways to restore from the backup files.
+
+NOTE: Tar will **delete** everything newer than the snapshot taken in the backup if you don't pay attention. See above guide.
+
+
+Usage for backup.sh
 --------------
 
 	Usage: backup.sh [-fiInvh] [-d <dirname>] [-m <dirname>] [-U <UUID>] [-r <dirname>] [-d <dirname>] [-p <filenameprefix>] [-g <filename>] [-m <dirname>]	 
