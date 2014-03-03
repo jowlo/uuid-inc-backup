@@ -27,6 +27,8 @@ where key.pem is a keyfile created by
 
 		openssl genpkey -algorithm RSA -out /path/to/key.pem -aes-256-cbc 
 
+The keyfile needs to be saved in a safe place (offsite), as it will not be copied to the backupdir (even if so, it will be in the encrypted backup).
+
 *Decryption* could then be done by issuing
 
 		cat backupfilename.tgz.enc | openssl aes-256-cbc -d -kfile ./key.pem | tar [x]
