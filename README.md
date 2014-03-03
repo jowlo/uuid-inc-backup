@@ -5,7 +5,7 @@ Short
 --------------
 The uuid-inc-backup.sh.sh shell script will perform incremental backups of hardcoded source directories via tar to a device with a specific UUID. If the device is not present, no backup will be performed. If the device is not mounted but present, it will be mounted, backed up to and unmounted afterwards.
 
-By default, only 30 incremental backups are made. If this threshold is reached, all backups will be moved to a rotate directory and a new full backup is created. The threshold can be changed (to something around 99999999 to disable auto-rotation(
+By default, only 30 incremental backups are made. If this threshold is reached, all backups will be moved to a rotate directory and a new full backup is created. The threshold can be changed (to something around 99999999 to disable auto-rotation)
 
 All Variables can be either set within the script itself as defaults or via command line options.
 
@@ -20,23 +20,29 @@ NOTE: Tar will **delete** everything newer than the snapshot taken in the backup
 Encryption
 --------------
 As of now, encrypting the backup is not coded in. But it could be easily added to the tar command line below by piping tar to 
-      | openssl aes-256-cbc -kfile /path/to/key.pem > ${BACKUPFILENAME}.tgz.enc
+
+		| openssl aes-256-cbc -kfile /path/to/key.pem > ${BACKUPFILENAME}.tgz.enc
 
 where key.pem is a keyfile created by
-      openssl genpkey -algorithm RSA -out /path/to/key.pem -aes-256-cbc 
+
+		openssl genpkey -algorithm RSA -out /path/to/key.pem -aes-256-cbc 
 
 *Decryption* could then be done by issuing
-      cat backupfilename.tgz.enc | openssl aes-256-cbc -d -kfile ./key.pem | tar --list
+
+		cat backupfilename.tgz.enc | openssl aes-256-cbc -d -kfile ./key.pem | tar [x]
+		
 after opening the keyfile.
 
 
 Splitting
 --------------
 As with encryption, splitting the backups into files with a maximus size could be achieved by piping the output of the tar command (or the output of above openssl encryption command) to something like
-      | split -d -b 4000m - ${BACKUPFILENAME}.tgz.
+
+		| split -d -b 4000m - ${BACKUPFILENAME}.tgz.
 
 To restore files afterwards, prepend any restoring with the following and pipe the output to your restore command
-      cat backup.tgz.* |
+
+		cat backup-????.tgz.* |
 
 Usage for uuid-inc-backup.sh
 --------------
