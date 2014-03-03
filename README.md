@@ -3,7 +3,7 @@ Automated Incremental Backup with Rotation based on UUID
 
 Short
 --------------
-The backup.sh shell script will perform incremental backups of hardcoded source directories via tar to a device with a specific UUID. If the device is not present, no backup will be performed. If the device is not mounted but present, it will be mounted, backed up to and unmounted afterwards.
+The uuid-inc-backup.sh.sh shell script will perform incremental backups of hardcoded source directories via tar to a device with a specific UUID. If the device is not present, no backup will be performed. If the device is not mounted but present, it will be mounted, backed up to and unmounted afterwards.
 
 By default, only 30 incremental backups are made. If this threshold is reached, all backups will be moved to a rotate directory and a new full backup is created. The threshold can be changed (to something around 99999999 to disable auto-rotation(
 
@@ -38,7 +38,7 @@ As with encryption, splitting the backups into files with a maximus size could b
 To restore files afterwards, prepend any restoring with the following and pipe the output to your restore command
       cat backup.tgz.* |
 
-Usage for backup.sh
+Usage for uuid-inc-backup.sh
 --------------
 
 	Usage: uuid-inc-backup.sh [-fiInvh] [-d <dirname>] [-m <dirname>] [-U <UUID>] [-r <dirname>] [-d <dirname>] [-p <filenameprefix>] [-g <filename>] [-m <dirname>]	 
